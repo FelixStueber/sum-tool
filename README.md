@@ -1,6 +1,6 @@
 # SumTool
 
-**TODO: Add description**
+Tool to determin whether two integers in an array sum up to a certain number.
 
 ## Installation
 
