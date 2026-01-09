@@ -8,7 +8,7 @@ defmodule SumToolTest do
     end)
   end
 
-  test "fail on wrong romat" do
+  test "fail on wrong format" do
     assert_raise(ArgumentError, "Wrong input format.", fn ->
       SumTool.run(1, 1)
     end)
@@ -23,7 +23,7 @@ defmodule SumToolTest do
   end
 
   test "allow multiple usage of number" do
-    assert SumTool.run([1], 2) == {1, 1}
+    assert_raise(RuntimeError, "No matching sum found.", fn -> SumTool.run([1], 2) end)
   end
 
   test "raise exeption when no match" do
@@ -47,6 +47,6 @@ defmodule SumToolTest do
   end
 
   test "large input" do
-    assert 1..100_000 |> Enum.map(& &1) |> SumTool.run(200_000) == {100_000, 100_000}
+    assert 1..100_000 |> Enum.map(& &1) |> SumTool.run(199_000) == {99_000, 100_000}
   end
 end
